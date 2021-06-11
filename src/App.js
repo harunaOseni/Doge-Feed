@@ -1,5 +1,5 @@
 import "./App.css";
-import { Header, Sidebar, Feed } from "./components";
+import { Header, Sidebar, Feed, Widget } from "./components";
 import "./components/Header/Header.css";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <div className="app-body">
         <Sidebar />
         <Feed /> 
-        {/* Widget */}
+        <Widget />
       </div>
     </div>
   );
