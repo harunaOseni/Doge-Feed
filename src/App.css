@@ -2,4 +2,6 @@
     background-color: #cb9800;
     display: flex;
     overflow-x: hidden;
+    margin-top: 50px;
+    padding-top: 40px;
 }

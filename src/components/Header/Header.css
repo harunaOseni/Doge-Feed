@@ -2,8 +2,10 @@
   display: flex;
   padding: 15px 20px;
   justify-content: space-between;
-  position: sticky;
+  position:fixed;
+  width: 97vw;
   background-color: #e1b303;
+  top: 0;
   z-index: 100;
   box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
 }
