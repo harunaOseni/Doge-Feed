@@ -4,16 +4,18 @@ import WallpaperIcon from "@material-ui/icons/Wallpaper";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import "./MessageSender.css";
+import { useStateValue } from "../../../State Provider/StateProvider";
 
 function MessageSender() {
+  const [{ user }, dispatch] = useStateValue();
   return (
     <div className="messageSender">
       <div className="messageSender-top">
-        <Avatar src="https://avatars.githubusercontent.com/u/61633659?v=4" />
+        <Avatar src={user.photoURL} />
         <form>
           <input
             type="text"
-            placeholder={`What's up with DOGE, Haruna Oseni?`}
+            placeholder={`What's up with DOGE, ${user.displayName}?`}
             className="messageSender-input"
           />
           <input type="text" placeholder="image URL (optional)" />

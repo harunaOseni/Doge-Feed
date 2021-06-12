@@ -15,9 +15,9 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <SideBarRow
-        src="https://avatars.githubusercontent.com/u/61633659?v=4"
+        src={user.photoURL}
         icon=""
-        title="Haruna Oseni"
+        title={user.displayName}
       />
       <SideBarRow Icon={ShowChartIcon} title="DOGE-COIN Stock Prices" />
       <SideBarRow Icon={EmojiFlagsIcon} title="Groups" />
