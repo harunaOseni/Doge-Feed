@@ -12,8 +12,10 @@ import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import ChatIcon from "@material-ui/icons/Chat";
 import NotificationsPausedIcon from "@material-ui/icons/NotificationsPaused";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import { useStateValue } from "../../State Provider/StateProvider";
 
 function Header() {
+  const [{ user }, dispatch] = useStateValue();
   return (
     <div className="Header">
       {/* Header-Left */}
@@ -50,8 +52,8 @@ function Header() {
       {/* Header-Right */}
       <div className="Header-right">
         <div className="Header-info">
-          <Avatar src="https://avatars.githubusercontent.com/u/61633659?v=4" />
-          <h4>Haruna Oseni</h4>
+          <Avatar src={user.photoURL} />
+          <h4>{user.displayName}</h4>
         </div>
         <IconButton className="Header-rightIcon-button">
           <PersonAddIcon className="Header-rightIcon" />
