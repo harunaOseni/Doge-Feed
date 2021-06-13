@@ -5,6 +5,8 @@ import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import "./MessageSender.css";
 import { useStateValue } from "../../../State Provider/StateProvider";
+import db from "../../../firebase";
+import firebase from "firebase";
 
 function MessageSender() {
   const [{ user }, dispatch] = useStateValue();
@@ -13,7 +15,14 @@ function MessageSender() {
   const postIt = (event) => {
     event.preventDefault();
 
-    //some db code will go here
+    //code to add post to app as well as in the post collection in the firestore database
+    db.collection("posts").add({
+      message: postTextState,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      profilePicture: user.photoURL,
+      username: user.displayName,
+      image: postImageState,
+    });
 
     updatePostTextState("");
     updatePostImageState("");
@@ -29,7 +38,7 @@ function MessageSender() {
             className="messageSender-input"
             value={postTextState}
             onChange={(event) => {
-              updatePostImageState(event.target.value);
+              updatePostTextState(event.target.value);
             }}
           />
           <input
@@ -37,7 +46,7 @@ function MessageSender() {
             type="text"
             placeholder="image URL (optional)"
             onChange={(event) => {
-              updatePostTextState(event.target.value);
+              updatePostImageState(event.target.value);
             }}
           />
           <button className="messageSender-button" onClick={postIt}>
