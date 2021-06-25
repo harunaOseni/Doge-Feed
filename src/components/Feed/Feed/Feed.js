@@ -25,7 +25,6 @@ function Feed() {
 
   return (
     <div className="feed">
-      <StoryReel />
       <MessageSender />
       {posts.map((post) => (
         <Post
@@ -33,7 +32,7 @@ function Feed() {
           message={post.data.message}
           username={post.data.username}
           image={post.data.image}
-          profilePicture={post.data.profilePicture}
+          profilePicture={post.data.profilePicture}                                
           timestamp={post.data.timestamp}
         />
       ))}
